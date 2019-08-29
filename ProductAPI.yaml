@@ -8,32 +8,62 @@ servers:
   - url: 'http://127.0.0.1:8000/api/v1'
     description: Sandbox
 paths:
+
   /product:
     get:
       tags:
         - Produtos
       summary: Retorna os produtos.
       responses:
-      
+
         '200':
           description: Listagem dos produtos disponíveis.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/products"
-    
+
         '405':
           description: Método não permitido.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
-          
+
         '500':
           description: Erro interno do servidor (Internal Server Error).
-          
-          
-          
+
+    post:
+      summary: Cadastrar produto.
+      tags:
+        - Produtos
+      responses:
+        '201':
+          description: Produto cadastrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productStatus2x'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+
+
+
+
 components:
 
   securitySchemes:
@@ -41,14 +71,32 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
-      
+
+  requestBodies:
+
+    Product:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+              name:
+                type: string
+              price:
+                type: number
+                format: decimal
+              product_category_id:
+                type: integer
+
   schemas:
-  
-    products:  
+
+    products:
       type: array
       items:
         $ref: "#/components/schemas/product"
-        
+
     product:
       type: object
       properties:
@@ -71,18 +119,18 @@ components:
           format: data
         additionals:
           $ref: "#/components/schemas/additionals"
-          
+
         category:
           $ref: "#/components/schemas/category"
-          
+
         images:
           $ref: "#/components/schemas/images"
-          
+
     additionals:
       type: array
       items:
         $ref: "#/components/schemas/additional"
-        
+
     additional:
       type: object
       properties:
@@ -90,7 +138,7 @@ components:
           type: integer
         name:
           type: string
-        price: 
+        price:
           type: number
           format: decimal
         product_additional_category_id:
@@ -108,7 +156,7 @@ components:
               type: integer
             product_additional_id:
               type: integer
-           
+
     category:
       type: object
       properties:
@@ -117,13 +165,13 @@ components:
         name:
           type: string
         status:
-          type: boolean   
-        
+          type: boolean
+
     images:
       type: array
       items:
         $ref: "#/components/schemas/image"
-        
+
     image:
       type: object
       properties:
@@ -137,7 +185,29 @@ components:
         updated_at:
           type: string
           format: data
-          
+
+    productStatus2x:
+      type: object
+      properties:
+        status:
+          type: boolean
+        name:
+          type: string
+        price:
+          type: number
+          format: decimal
+        product_category_id:
+          type: integer
+        id:
+          type: integer
+        created_at:
+          type: string
+          format: data
+        updated_at:
+          type: string
+          format: data
+
+
     error:
       type: object
       properties:
@@ -150,21 +220,11 @@ components:
               type: array
               items:
                 type: string
-      
-        
-    
-      
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    errorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+        errors:
+          type: string
