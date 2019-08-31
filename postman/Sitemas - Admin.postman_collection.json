@@ -1,0 +1,2538 @@
+{
+	"info": {
+		"_postman_id": "53e0c2a0-a8bf-4564-a4f6-5129eaa494fd",
+		"name": "Sitemas - Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "product",
+			"item": [
+				{
+					"name": "category",
+					"item": [
+						{
+							"name": "admin - Cadastrar categoria do produto.",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Hamburguer\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/product/category",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Retornar categoria do produto.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/product/category",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Retornar categoria do produto pelo ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/product/category/1",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Atualizar categoria do produto.",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"status\": 1,\n\t\"name\": \"nome3\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/product/category/2",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"category",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Atualizar parte dos dados da categoria do produto.",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"nome3999\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/product/category/1",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Excluir categoria do produto.",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "PPPPPPPP",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/product/category/1",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Pesquisar categoria do produto pelo nome.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/product/category/q/ham",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"category",
+										"q",
+										"ham"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "product",
+					"item": [
+						{
+							"name": "additional",
+							"item": [
+								{
+									"name": "admin - add product  additional",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"additionalsId\": [1,2,3]}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/1/additional",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"1",
+												"additional"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "iuiuiuiui",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - remover produto adicional do produto",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\"additionalsId\": [2,5]}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/1/additional",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"1",
+												"additional"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "iuiuiuiui",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "image",
+							"item": [
+								{
+									"name": "admin - add image by product id",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/x-www-form-urlencoded",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "src",
+													"type": "file",
+													"src": "/C:/Users/peter/Pictures/Capturar.PNG"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/1/image",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"1",
+												"image"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "iuiuiuiui",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - DELETE image product",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/1/image/1",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"1",
+												"image",
+												"1"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "admin - Cadastrar produto",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"1\",\r\n    \"name\": \"Misto Quente\",\r\n    \"price\": \"1.9\",\r\n    \"product_category_id\": \"1\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/product",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Retornar produto.",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/product",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Retonrar produto pelo id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/product/1",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Atualizar dados do produto",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"1\",\r\n    \"name\": \"X-Picanha999\",\r\n    \"price\": \"34\",\r\n    \"product_category_id\": \"1\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/product/5",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Atualizar parte dos dados do produto.",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\": \"1.999\",\r\n    \"product_category_id\": \"1\"\r\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/product/2",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - Excluir produto.",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "PPPPPPPP",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/product/2",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Retornar produto pelo nome",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/product/q/ha",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"product",
+										"q",
+										"ha"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "additional",
+					"item": [
+						{
+							"name": "category",
+							"item": [
+								{
+									"name": "admin - Cadastrar categoria do produto adicional.",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"Hamburgueoor\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/category",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"category"
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "POST product category ",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/x-www-form-urlencoded"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "urlencoded",
+													"urlencoded": [
+														{
+															"key": "status",
+															"value": "1",
+															"type": "text",
+															"disabled": true
+														},
+														{
+															"key": "name",
+															"value": "nome",
+															"type": "text"
+														}
+													]
+												},
+												"url": {
+													"raw": "http://127.0.0.1:8000/api/v1/product/additional/category",
+													"protocol": "http",
+													"host": [
+														"127",
+														"0",
+														"0",
+														"1"
+													],
+													"port": "8000",
+													"path": [
+														"api",
+														"v1",
+														"product",
+														"additional",
+														"category"
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "admin - Retornar categorias dos produtos adicionais.",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/category",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"category"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Retornar categoria do produto adicional pelo id",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/category/1",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"category",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Atualizar dado da categoria dos produtos adicionais.",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"ooio1122\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/category/2",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"category",
+												"2"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Atualizar parte da categoria do produto adicional.",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"1211212\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/category/1",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"category",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Excluir categoria.",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/category/1",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"category",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Pesquisar categoria pelo nome",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/category/q/oi",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"category",
+												"q",
+												"oi"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						},
+						{
+							"name": "additional",
+							"item": [
+								{
+									"name": "admin - Cadastrar produto adicional.",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"Hamburguer de frango\",\n\t\"price\": 2,\n\t\"product_additional_category_id\": 1\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Retornar produto adicional.",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Retornar produto admicional pelo id",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/1",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Atualizar produto adicional.",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"Hamburguer de f\",\n\t\"price\": 23,\n\t\"product_additional_category_id\": 2\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/3",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"3"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Atualizar parte do produto adicional.",
+									"request": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"Hamburguer 009999\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/1",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Excluir produto adicional.",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/1",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"1"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "admin - Pesquisar produto adicional pelo nome.",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{url}}{{version}}/product/additional/q/111",
+											"host": [
+												"{{url}}{{version}}"
+											],
+											"path": [
+												"product",
+												"additional",
+												"q",
+												"111"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"_postman_isSubFolder": true
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "1649fe64-fcee-43af-807d-b9301c4f2f62",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "8ac53bf0-4d43-4084-8359-e0bec1b7c04d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "Get usuario logado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer  {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}{{version}}/user/logged",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"user",
+								"logged"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer  {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Peter\",\n\t\"email\": \"peterclayder@gmail.com\",\n\t\"password\": \"p1p2lspc\",\n\t\"password_confirmation\": \"p1p2lspc\",\n\t\"telephone\": \"21971579961\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/user",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad3eb555-5da0-4a25-bbf1-fda3a254f133",
+								"exec": [
+									"let json =  pm.response.json();\r",
+									"\r",
+									"let varEnvironment = (json.is_admin == 1) ? \"token\" : \"token-customer\";\r",
+									"\r",
+									"pm.environment.set(varEnvironment, json.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@gmail.com\",\n\t\"password\": \"admin123\",\n\t\"remember_me\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/user/login",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer  {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"peterclayder@id.uff.br\",\n\t\"password\": \"p1p2lspc\",\n\t\"remember_me\": true\n}"
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/user/logout",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar usuário",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer  {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "status",
+									"value": "0",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "PPPPPPPP",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/user/1",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "customer ",
+			"item": [
+				{
+					"name": "address",
+					"item": [
+						{
+							"name": "admin - create",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"postcode\": \"111\",\n    \"country\": \"kkkkk\",\n    \"state\": \"sas\",\n    \"city\": \"sas\",\n    \"region\": \"asa\",\n    \"street_1\": \"sasa\",\n    \"street_2\": \"sas\",\n    \"street_3\": \"sdsd\",\n    \"shipping_id\": 2\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/1/address",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"1",
+										"address"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - atualizar endereço",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"postcode\": \"99999\",\n    \"country\": \"kkkkk\",\n    \"state\": \"sas\",\n    \"city\": \"sas\",\n    \"region\": \"asa\",\n    \"street_1\": \"sasa\",\n    \"street_2\": \"sas\",\n    \"street_3\": \"sdsd\",\n    \"street_4\": \"qqq\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/1/address/6",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"1",
+										"address",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cliente - atualizar endereço",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token-customer}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"postcode\": \"000998\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/address/6",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"address",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - excluir endereço",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/1/address/4",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"1",
+										"address",
+										"4"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cliente - excluir endereço",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token-customer}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/address/5",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"address",
+										"5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cliente  - Cadastrar endereço de usuário logado",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token-customer}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"postcode\": \"111\",\n    \"country\": \"br\",\n    \"state\": \"Rio de Janeiro\",\n    \"city\": \"Rio das Ostras\",\n    \"region\": \"region\",\n    \"street_1\": \"rua bangu\",\n    \"street_2\": \"123\",\n    \"street_3\": \"casa\",\n    \"shipping_id\": 1\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/address",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"address"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cliente  - atualizar endereço",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token-customer}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"postcode\": \"88888\",\n    \"country\": \"kkkkk\",\n    \"state\": \"sas\",\n    \"city\": \"sas\",\n    \"region\": \"asa\",\n    \"street_1\": \"sasa\",\n    \"street_2\": \"sas\",\n    \"street_3\": \"sdsd\",\n    \"street_4\": \"qqq\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/address/6",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"address",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "customer",
+					"item": [
+						{
+							"name": "admin - get clientes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/customer",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "admin - get cliente pelo id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/customer/1",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create customer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"type": "text",
+										"value": "XMLHttpRequest"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token-customer}}",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"name\": \"Peter\",\n\t\"email\": \"peterclayder@gmail.com\",\n\t\"password\": \"p1p2lspc\",\n\t\"password_confirmation\": \"p1p2lspc\",\n\t\"telephone\": \"21971579961\"\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2e25800a-d065-49ae-a488-313e132f3468",
+										"exec": [
+											"let json =  pm.response.json();\r",
+											"\r",
+											"let varEnvironment = (json.is_admin == 1) ? \"token\" : \"token-customer\";\r",
+											"\r",
+											"pm.environment.set(varEnvironment, json.access_token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"peterclayder@gmail.com\",\n\t\"password\": \"p1p2lspc\",\n\t\"remember_me\": true\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/login",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cliente - Logout",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer  {{token-customer}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"email\": \"peterclayder@id.uff.br\",\n\t\"password\": \"p1p2lspc\",\n\t\"remember_me\": true\n}"
+								},
+								"url": {
+									"raw": "{{url}}{{version}}/customer/logout",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cliente - cliente logado",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer  {{token-customer}}"
+									}
+								],
+								"url": {
+									"raw": "{{url}}{{version}}/customer/logged",
+									"host": [
+										"{{url}}{{version}}"
+									],
+									"path": [
+										"customer",
+										"logged"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ce32c154-dd9f-4a71-9cf7-939487191966",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f18f1bcf-bbb9-45e6-ba00-48d7c17b76d7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "shipping",
+			"item": [
+				{
+					"name": "admin - cadastrar bairro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer  {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"location\": \"Liberdade\",\n\t\"price\": 3.5\n}"
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/shipping",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"shipping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - excluir",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer  {{token}}"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/shipping/188",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"shipping",
+								"188"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - editar",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer  {{token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"price\": 99999\n}"
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/shipping/1",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"shipping",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - editar",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer  {{token}}"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"price\": 22\n}"
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/shipping/1",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"shipping",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "todos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/shipping",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"shipping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pelo ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer  {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/shipping/1",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"shipping",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ebe09947-9d78-4bb1-85e8-75cd21eaae9d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0a1a61ab-5913-43bd-b92b-803ebc12ea49",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "order ",
+			"item": [
+				{
+					"name": "admin - editar status do pedido",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer  {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"status\": \"processing\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/order/13",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"order",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - retornar pedido pelo id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer  {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/order/13",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"order",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - retornar pedidos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer  {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}{{version}}/order",
+							"host": [
+								"{{url}}{{version}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5fd864d4-a9da-4bd9-a279-09e05ce2d850",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "27b7144b-09b9-4e26-840c-c05fb7e9f181",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "60cb611d-49e5-41e5-a3c3-ba0d3a1d1aa8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b84aae41-5ac0-40c8-9b03-6904ee0f3863",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
