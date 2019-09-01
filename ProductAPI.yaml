@@ -11,6 +11,54 @@ servers:
 
 paths:
 
+  /user/login:
+
+    post:
+      summary: Realizar Login.
+
+      tags:
+        - Login
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                  expires_at:
+                    type: string
+                    format: date
+                  is_admin:
+                    type: boolean
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "admin@gmail.com"
+                password:
+                  type: string
+                  example: "admin123"
+
   /product:
 
     get:
