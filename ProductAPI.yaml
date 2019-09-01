@@ -8,6 +8,7 @@ servers:
   - url: 'http://127.0.0.1:8000/api/v1'
     description: Sandbox
 
+
 paths:
 
   /product:
@@ -292,7 +293,69 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ProductAdditional'
 
+  /product/category:
+    post:
+      summary: Cadastrar categoria do produto.
 
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Category
+      responses:
+        '201':
+          description: Categoria cadastrada.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productStatus2x'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Category'
+
+    get:
+      summary: Retornar todas as categorias do produto.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Category
+      responses:
+        '200':
+          description: ok.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductCategory'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
 
 
 components:
@@ -338,6 +401,18 @@ components:
                 format: decimal
               product_category_id:
                 type: integer
+
+    Category:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+              name:
+                type: string
+
 
     ProductAdditional:
       content:
@@ -468,6 +543,35 @@ components:
           type: string
           format: data
 
+    ProductCategory:
+      type: object
+      properties:
+        status:
+          type: boolean
+        name:
+          type: string
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              price:
+                type: number
+                format: decimal
+              product_category_id:
+                type: integer
+              status:
+                type: boolean
+              created_at:
+                type: string
+                format: data
+              updated_at:
+                type: string
+                format: data
 
     error:
       type: object
