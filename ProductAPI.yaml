@@ -172,14 +172,6 @@ paths:
         '401':
           description: Não autorizado.
 
-        '422':
-          description: Entidade improcessável.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/errorMessage"
-
-
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
@@ -230,7 +222,7 @@ paths:
 
       tags:
         - Product
-      summary: Retorna produto pelo ID.
+      summary: Pesquisar produto pelo nome.
       responses:
 
         '200':
@@ -357,6 +349,169 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
+  /product/category/{categoryId}:
+
+    parameters:
+      - $ref: '#/components/parameters/categoryId'
+
+    get:
+      summary: Retornar a categoria pelo ID.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Category
+      responses:
+        '200':
+          description: ok.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCategory'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+    put:
+      summary: Atualizar categoria do produto.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Category
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productStatus2x'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Category'
+
+    patch:
+      summary: Atualizar categoria do produto.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Category
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productStatus2x'
+
+        '401':
+          description: Não autorizado.
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Category'
+
+    delete:
+      summary: Excluir a categoria pelo ID.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Category
+      responses:
+        '200':
+          description: ok.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+  /product/category/q/{name}:
+
+    get:
+
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - $ref: '#/components/parameters/q'
+
+      tags:
+        - Product Category
+      summary: Pesquisar categoria pelo nome.
+      responses:
+
+        '200':
+          description: ok.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductCategory'
+
+        '404':
+          description: Categoria não encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+
+
+
+
 
 components:
 
@@ -373,6 +528,14 @@ components:
       in: path
       required: true
       description: ID do produto.
+      schema:
+        type: string
+
+    categoryId:
+      name: categoryId
+      in: path
+      required: true
+      description: ID da categoria.
       schema:
         type: string
 
