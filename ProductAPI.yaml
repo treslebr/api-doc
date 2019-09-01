@@ -21,7 +21,7 @@ paths:
       responses:
 
         '200':
-          description: Listagem dos produtos disponíveis.
+          description: OK.
           content:
             application/json:
               schema:
@@ -47,7 +47,7 @@ paths:
         - Product
       responses:
         '201':
-          description: Produto cadastrado
+          description: OK.
           content:
             application/json:
               schema:
@@ -81,7 +81,7 @@ paths:
       responses:
 
         '200':
-          description: Listagem dos produtos disponíveis.
+          description: OK.
           content:
             application/json:
               schema:
@@ -115,7 +115,7 @@ paths:
         - Product
       responses:
         '200':
-          description: Produto cadastrado
+          description: OK.
           content:
             application/json:
               schema:
@@ -156,7 +156,7 @@ paths:
         - Product
       responses:
         '200':
-          description: Produto cadastrado
+          description: OK.
           content:
             application/json:
               schema:
@@ -191,7 +191,7 @@ paths:
       responses:
 
         '200':
-          description: ok.
+          description: OK.
           content:
             application/json:
               schema:
@@ -226,7 +226,7 @@ paths:
       responses:
 
         '200':
-          description: Listagem dos produtos disponíveis.
+          description: OK.
           content:
             application/json:
               schema:
@@ -263,7 +263,7 @@ paths:
         - Product
       responses:
         '201':
-          description: Produto adicional cadastrado
+          description: OK.
           content:
             application/json:
               schema:
@@ -296,11 +296,11 @@ paths:
         - Product Category
       responses:
         '201':
-          description: Categoria cadastrada.
+          description: OK.
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/productStatus2x'
+                $ref: '#/components/schemas/category'
 
         '401':
           description: Não autorizado.
@@ -328,7 +328,7 @@ paths:
         - Product Category
       responses:
         '200':
-          description: ok.
+          description: OK.
           content:
             application/json:
               schema:
@@ -350,7 +350,6 @@ paths:
           description: Erro interno do servidor (Internal Server Error).
 
   /product/category/{categoryId}:
-
     parameters:
       - $ref: '#/components/parameters/categoryId'
 
@@ -364,7 +363,7 @@ paths:
         - Product Category
       responses:
         '200':
-          description: ok.
+          description: OK.
           content:
             application/json:
               schema:
@@ -372,6 +371,13 @@ paths:
 
         '401':
           description: Não autorizado.
+
+        '404':
+          description: Categoria não encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
 
         '422':
           description: Entidade improcessável.
@@ -397,10 +403,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/productStatus2x'
+                $ref: "#/components/schemas/errorMessage"
 
         '401':
           description: Não autorizado.
+
+        '404':
+          description: Categoria não encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
 
         '422':
           description: Entidade improcessável.
@@ -429,10 +442,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/productStatus2x'
+                $ref: "#/components/schemas/errorMessage"
 
         '401':
           description: Não autorizado.
+
+        '404':
+          description: Categoria não encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
@@ -458,6 +478,13 @@ paths:
 
         '401':
           description: Não autorizado.
+
+        '404':
+          description: Categoria não encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
 
         '422':
           description: Entidade improcessável.
@@ -485,7 +512,7 @@ paths:
       responses:
 
         '200':
-          description: ok.
+          description: OK.
           content:
             application/json:
               schema:
@@ -508,10 +535,487 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
+  /product/additional/category:
+    post:
+      summary: Cadastrar categoria do produto adicional.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional Category
+      responses:
+        '201':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/category'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Category'
+
+    get:
+      summary: Retornar todas as categorias dos produto adicionais.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional Category
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProductAdditionalCategory'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+  /product/additional/category/{categoryId}:
+
+    parameters:
+      - $ref: '#/components/parameters/categoryId'
+
+    get:
+      summary: Retornar a categoria pelo ID.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional Category
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductAdditionalCategory'
+
+        '401':
+          description: Não autorizado.
+
+        '404':
+          description: Categoria não encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+    put:
+      summary: Atualizar categoria.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional Category
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Category'
+
+    patch:
+      summary: Atualizar categoria.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional Category
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '401':
+          description: Não autorizado.
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Category'
+
+    delete:
+      summary: Excluir a categoria pelo ID.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional Category
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+  /product/additional/category/q/{name}:
+
+    get:
+
+      security:
+        - bearerAuth: []
+
+      parameters:
+        - $ref: '#/components/parameters/q'
+
+      tags:
+        - Product Additional Category
+      summary: Pesquisar categoria pelo nome.
+      responses:
+
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductAdditionalCategory'
+
+        '404':
+          description: Categoria não encontrada.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+  /product/additional:
+    get:
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional
+      summary: Retorna os produtos adicionais.
+      responses:
+
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductAdditional"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+    post:
+
+      security:
+        - bearerAuth: []
+
+      summary: Cadastrar produto adicional.
+
+      tags:
+        - Product Additional
+      responses:
+        '201':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productAdditionalStatus2x'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/ProductAdditional'
+
+  /product/additional/{productAdditionalId}:
+    parameters:
+      - $ref: '#/components/parameters/productAdditionalId'
+
+    get:
+
+      security:
+        - bearerAuth: []
 
 
+      tags:
+        - Product Additional
+      summary: Retornar produto adicional pelo ID.
+      responses:
+
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductAdditional"
+
+        '404':
+          description: Produto adicional não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+    put:
+
+      summary: Editar produto adicional.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '404':
+          description: Produto não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
 
 
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/ProductAdditional'
+
+    patch:
+
+      summary: Editar dados do produto adicional.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '404':
+          description: Produto não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '401':
+          description: Não autorizado.
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+
+    delete:
+
+      tags:
+        - Product Additional
+
+      summary: Excluir produto.
+
+      security:
+        - bearerAuth: []
+
+      responses:
+
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '404':
+          description: Produto não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+  /product/additional/q/{name}:
+    parameters:
+      - $ref: '#/components/parameters/q'
+
+    get:
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product Additional
+      summary: Retornar produto pelo nome.
+      responses:
+
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ProductAdditional"
+
+        '404':
+          description: Produto adicional não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
 
 components:
 
@@ -528,6 +1032,14 @@ components:
       in: path
       required: true
       description: ID do produto.
+      schema:
+        type: string
+
+    productAdditionalId:
+      name: productAdditionalId
+      in: path
+      required: true
+      description: ID do produto adicional.
       schema:
         type: string
 
@@ -565,6 +1077,22 @@ components:
               product_category_id:
                 type: integer
 
+    ProductAdditional:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              status:
+                type: boolean
+              name:
+                type: string
+              price:
+                type: number
+                format: decimal
+              product_additional_category_id:
+                type: integer
+
     Category:
       content:
         application/json:
@@ -575,18 +1103,6 @@ components:
                 type: boolean
               name:
                 type: string
-
-
-    ProductAdditional:
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              additionalsId:
-                type: array
-                items:
-                  type: integer
 
 
   schemas:
@@ -656,6 +1172,32 @@ components:
             product_additional_id:
               type: integer
 
+    ProductAdditional:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        price:
+          type: number
+          format: decimal
+        product_additional_category_id:
+          type: integer
+        created_at:
+          type: string
+          format: data
+        updated_at:
+          type: string
+          format: data
+        category:
+          $ref: "#/components/schemas/category"
+        products:
+          type: array
+          items:
+            $ref: "#/components/schemas/productStatus2x"
+
+
     category:
       type: object
       properties:
@@ -665,6 +1207,12 @@ components:
           type: string
         status:
           type: boolean
+        created_at:
+          type: string
+          format: data
+        updated_at:
+          type: string
+          format: data
 
     images:
       type: array
@@ -706,6 +1254,27 @@ components:
           type: string
           format: data
 
+    productAdditionalStatus2x:
+      type: object
+      properties:
+        status:
+          type: boolean
+        name:
+          type: string
+        price:
+          type: number
+          format: decimal
+        product_additional_category_id:
+          type: integer
+        id:
+          type: integer
+        created_at:
+          type: string
+          format: data
+        updated_at:
+          type: string
+          format: data
+
     ProductCategory:
       type: object
       properties:
@@ -713,6 +1282,12 @@ components:
           type: boolean
         name:
           type: string
+        created_at:
+          type: string
+          format: data
+        updated_at:
+          type: string
+          format: data
         products:
           type: array
           items:
@@ -726,6 +1301,42 @@ components:
                 type: number
                 format: decimal
               product_category_id:
+                type: integer
+              status:
+                type: boolean
+              created_at:
+                type: string
+                format: data
+              updated_at:
+                type: string
+                format: data
+
+    ProductAdditionalCategory:
+      type: object
+      properties:
+        status:
+          type: boolean
+        name:
+          type: string
+        created_at:
+          type: string
+          format: data
+        updated_at:
+          type: string
+          format: data
+        additionals:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+              price:
+                type: number
+                format: decimal
+              product_additional_category_id:
                 type: integer
               status:
                 type: boolean
