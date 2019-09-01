@@ -979,14 +979,9 @@
 											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"Hamburgueoor\"\n}"
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/category",
+											"raw": "{{url}}{{version}}{{urlProductAdditionalCategory}}",
 											"host": [
-												"{{url}}{{version}}"
-											],
-											"path": [
-												"product",
-												"additional",
-												"category"
+												"{{url}}{{version}}{{urlProductAdditionalCategory}}"
 											]
 										}
 									},
@@ -1069,14 +1064,9 @@
 											}
 										],
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/category",
+											"raw": "{{url}}{{version}}{{urlProductAdditionalCategory}}",
 											"host": [
-												"{{url}}{{version}}"
-											],
-											"path": [
-												"product",
-												"additional",
-												"category"
+												"{{url}}{{version}}{{urlProductAdditionalCategory}}"
 											]
 										}
 									},
@@ -1102,14 +1092,11 @@
 											}
 										],
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/category/1",
+											"raw": "{{url}}{{version}}{{urlProductAdditionalCategory}}/1",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProductAdditionalCategory}}"
 											],
 											"path": [
-												"product",
-												"additional",
-												"category",
 												"1"
 											]
 										}
@@ -1142,14 +1129,11 @@
 											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"ooio1122\"\n}"
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/category/2",
+											"raw": "{{url}}{{version}}{{urlProductAdditionalCategory}}/2",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProductAdditionalCategory}}"
 											],
 											"path": [
-												"product",
-												"additional",
-												"category",
 												"2"
 											]
 										}
@@ -1182,14 +1166,11 @@
 											"raw": "{\n\t\"name\": \"1211212\"\n}"
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/category/1",
+											"raw": "{{url}}{{version}}{{urlProductAdditionalCategory}}/1",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProductAdditionalCategory}}"
 											],
 											"path": [
-												"product",
-												"additional",
-												"category",
 												"1"
 											]
 										}
@@ -1222,14 +1203,11 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/category/1",
+											"raw": "{{url}}{{version}}{{urlProductAdditionalCategory}}/1",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProductAdditionalCategory}}"
 											],
 											"path": [
-												"product",
-												"additional",
-												"category",
 												"1"
 											]
 										}
@@ -1265,14 +1243,11 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/category/q/oi",
+											"raw": "{{url}}{{version}}{{urlProductAdditionalCategory}}/q/oi",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProductAdditionalCategory}}"
 											],
 											"path": [
-												"product",
-												"additional",
-												"category",
 												"q",
 												"oi"
 											]
@@ -1312,20 +1287,16 @@
 											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"Hamburguer de frango\",\n\t\"price\": 2,\n\t\"product_additional_category_id\": 1\n}"
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional",
+											"raw": "{{url}}{{version}}{{urlProdutoAdicional}}",
 											"host": [
-												"{{url}}{{version}}"
-											],
-											"path": [
-												"product",
-												"additional"
+												"{{url}}{{version}}{{urlProdutoAdicional}}"
 											]
 										}
 									},
 									"response": []
 								},
 								{
-									"name": "admin - Retornar produto adicional.",
+									"name": "admin - Retornar todos produtos adicionais.",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -1353,20 +1324,16 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional",
+											"raw": "{{url}}{{version}}{{urlProdutoAdicional}}",
 											"host": [
-												"{{url}}{{version}}"
-											],
-											"path": [
-												"product",
-												"additional"
+												"{{url}}{{version}}{{urlProdutoAdicional}}"
 											]
 										}
 									},
 									"response": []
 								},
 								{
-									"name": "admin - Retornar produto admicional pelo id",
+									"name": "admin - Retornar produto adicional pelo id",
 									"protocolProfileBehavior": {
 										"disableBodyPruning": true
 									},
@@ -1394,13 +1361,11 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/1",
+											"raw": "{{url}}{{version}}{{urlProdutoAdicional}}/1",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProdutoAdicional}}"
 											],
 											"path": [
-												"product",
-												"additional",
 												"1"
 											]
 										}
@@ -1433,13 +1398,11 @@
 											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"Hamburguer de f\",\n\t\"price\": 23,\n\t\"product_additional_category_id\": 2\n}"
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/3",
+											"raw": "{{url}}{{version}}{{urlProdutoAdicional}}/3",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProdutoAdicional}}"
 											],
 											"path": [
-												"product",
-												"additional",
 												"3"
 											]
 										}
@@ -1472,13 +1435,11 @@
 											"raw": "{\n\t\"name\": \"Hamburguer 009999\"\n}"
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/1",
+											"raw": "{{url}}{{version}}{{urlProdutoAdicional}}/1",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProdutoAdicional}}"
 											],
 											"path": [
-												"product",
-												"additional",
 												"1"
 											]
 										}
@@ -1511,13 +1472,11 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/1",
+											"raw": "{{url}}{{version}}{{urlProdutoAdicional}}/1",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProdutoAdicional}}"
 											],
 											"path": [
-												"product",
-												"additional",
 												"1"
 											]
 										}
@@ -1553,13 +1512,11 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/additional/q/111",
+											"raw": "{{url}}{{version}}{{urlProdutoAdicional}}/q/111",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProdutoAdicional}}"
 											],
 											"path": [
-												"product",
-												"additional",
 												"q",
 												"111"
 											]
@@ -2579,12 +2536,11 @@
 							"raw": "{\n\t\"status\": \"processing\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/order/13",
+							"raw": "{{url}}{{version}}{{urlOrder}}/13",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlOrder}}"
 							],
 							"path": [
-								"order",
 								"13"
 							]
 						}
@@ -2621,12 +2577,11 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/order/13",
+							"raw": "{{url}}{{version}}{{urlOrder}}/13",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlOrder}}"
 							],
 							"path": [
-								"order",
 								"13"
 							]
 						}
@@ -2663,12 +2618,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/order",
+							"raw": "{{url}}{{version}}{{urlOrder}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"order"
+								"{{url}}{{version}}{{urlOrder}}"
 							]
 						}
 					},
@@ -2718,7 +2670,9 @@
 					"pm.globals.set(\"urlProduct\", \"/product\");",
 					"pm.globals.set(\"urlAdditional\", \"/additional\");",
 					"pm.globals.set(\"urlProductImage\", \"/image\");",
-					"pm.globals.set(\"urlUser\", \"/user\");"
+					"pm.globals.set(\"urlUser\", \"/user\");",
+					"pm.globals.set(\"urlProductAdditionalCategory\", \"/product/additional/category\");",
+					""
 				]
 			}
 		},
