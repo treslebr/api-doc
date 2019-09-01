@@ -7,12 +7,15 @@ info:
 servers:
   - url: 'http://127.0.0.1:8000/api/v1'
     description: Sandbox
+
 paths:
 
   /product:
+
     get:
+
       tags:
-        - Produtos
+        - Product
       summary: Retorna os produtos.
       responses:
 
@@ -35,8 +38,12 @@ paths:
 
     post:
       summary: Cadastrar produto.
+
+      security:
+        - bearerAuth: []
+
       tags:
-        - Produtos
+        - Product
       responses:
         '201':
           description: Produto cadastrado
@@ -61,6 +68,230 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Product'
 
+  /product/{productId}:
+    parameters:
+      - $ref: '#/components/parameters/productId'
+
+    get:
+
+      tags:
+        - Product
+      summary: Retorna produto pelo ID.
+      responses:
+
+        '200':
+          description: Listagem dos produtos disponíveis.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/product"
+
+        '404':
+          description: Produto não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+    put:
+
+      summary: Editar produto.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product
+      responses:
+        '200':
+          description: Produto cadastrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productStatus2x'
+
+        '404':
+          description: Produto não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+
+    patch:
+
+      summary: Editar dados do produto.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product
+      responses:
+        '200':
+          description: Produto cadastrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productStatus2x'
+
+        '404':
+          description: Produto não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/Product'
+
+    delete:
+
+      tags:
+        - Product
+
+      summary: Excluir produto.
+
+      security:
+        - bearerAuth: []
+
+      responses:
+
+        '200':
+          description: ok.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '404':
+          description: Produto não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+  /product/q/{name}:
+    get:
+
+      parameters:
+        - $ref: '#/components/parameters/q'
+
+      tags:
+        - Product
+      summary: Retorna produto pelo ID.
+      responses:
+
+        '200':
+          description: Listagem dos produtos disponíveis.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/product"
+
+        '404':
+          description: Produto não encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+  /product/{productId}/additional:
+    parameters:
+      - $ref: '#/components/parameters/productId'
+
+    post:
+      summary: Inserir produto adicional em um produto.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Product
+      responses:
+        '201':
+          description: Produto adicional cadastrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/productStatus2x'
+
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Entidade improcessável.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+
+      requestBody:
+        $ref: '#/components/requestBodies/ProductAdditional'
+
 
 
 
@@ -71,6 +302,24 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+
+  parameters:
+
+    productId:
+      name: productId
+      in: path
+      required: true
+      description: ID do produto.
+      schema:
+        type: string
+
+    q:
+      name: name
+      in: path
+      required: true
+      description: Nome.
+      schema:
+        type: string
 
   requestBodies:
 
@@ -89,6 +338,18 @@ components:
                 format: decimal
               product_category_id:
                 type: integer
+
+    ProductAdditional:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              additionalsId:
+                type: array
+                items:
+                  type: integer
+
 
   schemas:
 
@@ -228,3 +489,22 @@ components:
           type: string
         errors:
           type: string
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
