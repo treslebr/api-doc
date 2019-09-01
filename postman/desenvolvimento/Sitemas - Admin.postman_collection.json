@@ -37,20 +37,55 @@
 									"raw": "{\n\t\"name\": \"Hamburguer\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/product/category",
+									"raw": "{{url}}{{version}}{{urlProductCategory}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"product",
-										"category"
+										"{{url}}{{version}}{{urlProductCategory}}"
 									]
-								}
+								},
+								"description": "api.tresle.com.br/v1/product/category"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Admin cadastrando uma categoria do produto.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"HamburguerExemplo\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}{{urlProductCategory}}",
+											"host": [
+												"{{url}}{{version}}{{urlProductCategory}}"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						},
 						{
-							"name": "admin - Retornar categoria do produto.",
+							"name": "admin - Retornar todas categorias dos produtos.",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -64,20 +99,17 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer  {{token}}",
-										"type": "text"
+										"type": "text",
+										"value": "Bearer  {{token}}"
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/product/category",
+									"raw": "{{url}}{{version}}{{urlProductCategory}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"product",
-										"category"
+										"{{url}}{{version}}{{urlProductCategory}}"
 									]
-								}
+								},
+								"description": "api.tresle.com.br/v1/product/category"
 							},
 							"response": []
 						},
@@ -101,21 +133,55 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/product/category/1",
+									"raw": "{{url}}{{version}}{{urlProductCategory}}/1",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProductCategory}}"
 									],
 									"path": [
-										"product",
-										"category",
 										"1"
 									]
-								}
+								},
+								"description": "api.tresle.com.br/v1/product/category/{idProductCategory}"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "admin - Retornar categorias do produto (id = 1)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/x-www-form-urlencoded"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}{{version}}{{urlProductCategory}}/1",
+											"host": [
+												"{{url}}{{version}}{{urlProductCategory}}"
+											],
+											"path": [
+												"1"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						},
 						{
-							"name": "admin - Atualizar categoria do produto.",
+							"name": "admin - Atualizar dados da categoria de um produto específico.",
 							"request": {
 								"method": "PUT",
 								"header": [
@@ -140,21 +206,61 @@
 									"raw": "{\n\t\"status\": 1,\n\t\"name\": \"nome3\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/product/category/2",
+									"raw": "{{url}}{{version}}{{urlProductCategory}}/2",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProductCategory}}"
 									],
 									"path": [
-										"product",
-										"category",
 										"2"
 									]
-								}
+								},
+								"description": "api.tresle.com.br/v1/product/category/{idProductCategory}"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Admin atualizando dados da categoria (id = 1)",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"name\": \"nome exemplo\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}{{urlProductCategory}}/1",
+											"host": [
+												"{{url}}{{version}}{{urlProductCategory}}"
+											],
+											"path": [
+												"1"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						},
 						{
-							"name": "admin - Atualizar parte dos dados da categoria do produto.",
+							"name": "admin - Atualizar parte dos dados da categoria de um produto específico.",
 							"request": {
 								"method": "PATCH",
 								"header": [
@@ -170,8 +276,8 @@
 									},
 									{
 										"key": "Authorization",
-										"value": "Bearer  {{token}}",
-										"type": "text"
+										"type": "text",
+										"value": "Bearer  {{token}}"
 									}
 								],
 								"body": {
@@ -179,18 +285,58 @@
 									"raw": "{\n\t\"name\": \"nome3999\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/product/category/1",
+									"raw": "{{url}}{{version}}{{urlProductCategory}}/1",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProductCategory}}"
 									],
 									"path": [
-										"product",
-										"category",
 										"1"
 									]
-								}
+								},
+								"description": "api.tresle.com.br/v1/product/category/{idProductCategory}"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "Admin atualizando nome da categoria do produto.",
+									"originalRequest": {
+										"method": "PATCH",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer  {{token}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\t\"status\": 1,\n\t\"name\": \"nome3999\"\n}"
+										},
+										"url": {
+											"raw": "{{url}}{{version}}{{urlProductCategory}}/1",
+											"host": [
+												"{{url}}{{version}}{{urlProductCategory}}"
+											],
+											"path": [
+												"1"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						},
 						{
 							"name": "admin - Excluir categoria do produto.",
@@ -213,32 +359,18 @@
 								],
 								"body": {
 									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "status",
-											"value": "0",
-											"type": "text",
-											"disabled": true
-										},
-										{
-											"key": "name",
-											"value": "PPPPPPPP",
-											"type": "text",
-											"disabled": true
-										}
-									]
+									"urlencoded": []
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/product/category/1",
+									"raw": "{{url}}{{version}}{{urlProductCategory}}/1",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProductCategory}}"
 									],
 									"path": [
-										"product",
-										"category",
 										"1"
 									]
-								}
+								},
+								"description": "api.tresle.com.br/v1/product/category/{idProductCategory}"
 							},
 							"response": []
 						},
@@ -262,19 +394,54 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/product/category/q/ham",
+									"raw": "{{url}}{{version}}{{urlProductCategory}}/q/ham",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProductCategory}}"
 									],
 									"path": [
-										"product",
-										"category",
 										"q",
 										"ham"
 									]
-								}
+								},
+								"description": "api.tresle.com.br/v1/product/category/q/{pesquisa}"
 							},
-							"response": []
+							"response": [
+								{
+									"name": "admin pesquisando pelos produtos que começam com ham",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer  {{token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{url}}{{version}}{{urlProductCategory}}/q/ham",
+											"host": [
+												"{{url}}{{version}}{{urlProductCategory}}"
+											],
+											"path": [
+												"q",
+												"ham"
+											]
+										}
+									},
+									"_postman_previewlanguage": null,
+									"header": null,
+									"cookie": [],
+									"body": null
+								}
+							]
 						}
 					],
 					"_postman_isSubFolder": true
@@ -311,14 +478,12 @@
 											"raw": "{\"additionalsId\": [1,2,3]}"
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/1/additional",
+											"raw": "{{url}}{{version}}{{urlProduct}}/1{{urlAdditional}}",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProduct}}"
 											],
 											"path": [
-												"product",
-												"1",
-												"additional"
+												"1{{urlAdditional}}"
 											],
 											"query": [
 												{
@@ -327,9 +492,89 @@
 													"disabled": true
 												}
 											]
-										}
+										},
+										"description": "api.tresle.com.br/v1/product/{product_id}/additional"
 									},
-									"response": []
+									"response": [
+										{
+											"name": "Retornando os adicionais do produto (id = 1)",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"name": "Content-Type",
+														"value": "application/json",
+														"type": "text"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													},
+													{
+														"key": "Authorization",
+														"value": "Bearer  {{token}}",
+														"type": "text"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\"additionalsId\": [1,2,3]}"
+												},
+												"url": {
+													"raw": "{{url}}{{version}}{{urlProduct}}/1{{urlAdditional}}",
+													"host": [
+														"{{url}}{{version}}{{urlProduct}}"
+													],
+													"path": [
+														"1{{urlAdditional}}"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "iuiuiuiui",
+															"disabled": true
+														}
+													]
+												}
+											},
+											"status": "Unauthorized",
+											"code": 401,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Host",
+													"value": "127.0.0.1:8000"
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 31 Aug 2019 22:51:51 GMT"
+												},
+												{
+													"key": "Date",
+													"value": "Sat, 31 Aug 2019 22:51:51 GMT"
+												},
+												{
+													"key": "Connection",
+													"value": "close"
+												},
+												{
+													"key": "X-Powered-By",
+													"value": "PHP/7.3.7"
+												},
+												{
+													"key": "Cache-Control",
+													"value": "no-cache, private"
+												},
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n    \"message\": \"Unauthenticated.\"\n}"
+										}
+									]
 								},
 								{
 									"name": "admin - remover produto adicional do produto",
@@ -357,14 +602,12 @@
 											"raw": "{\"additionalsId\": [2,5]}"
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/1/additional",
+											"raw": "{{url}}{{version}}{{urlProduct}}/1{{urlAdditional}}",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProduct}}"
 											],
 											"path": [
-												"product",
-												"1",
-												"additional"
+												"1{{urlAdditional}}"
 											],
 											"query": [
 												{
@@ -384,7 +627,7 @@
 							"name": "image",
 							"item": [
 								{
-									"name": "admin - add image by product id",
+									"name": "admin - Adicionar imagem em um produto específico",
 									"request": {
 										"method": "POST",
 										"header": [
@@ -415,14 +658,12 @@
 											]
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/1/image",
+											"raw": "{{url}}{{version}}{{urlProduct}}/1{{urlProductImage}}",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProduct}}"
 											],
 											"path": [
-												"product",
-												"1",
-												"image"
+												"1{{urlProductImage}}"
 											],
 											"query": [
 												{
@@ -436,7 +677,7 @@
 									"response": []
 								},
 								{
-									"name": "admin - DELETE image product",
+									"name": "admin - Remover imagem de um produto específico.",
 									"request": {
 										"method": "DELETE",
 										"header": [
@@ -461,14 +702,12 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "{{url}}{{version}}/product/1/image/1",
+											"raw": "{{url}}{{version}}{{urlProduct}}/1{{urlProductImage}}/1",
 											"host": [
-												"{{url}}{{version}}"
+												"{{url}}{{version}}{{urlProduct}}"
 											],
 											"path": [
-												"product",
-												"1",
-												"image",
+												"1{{urlProductImage}}",
 												"1"
 											]
 										}
@@ -504,19 +743,16 @@
 									"raw": "{\r\n    \"status\": \"1\",\r\n    \"name\": \"Misto Quente\",\r\n    \"price\": \"1.9\",\r\n    \"product_category_id\": \"1\"\r\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/product",
+									"raw": "{{url}}{{version}}{{urlProduct}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"product"
+										"{{url}}{{version}}{{urlProduct}}"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Retornar produto.",
+							"name": "Retornar todos os produtos",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -530,12 +766,9 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/product",
+									"raw": "{{url}}{{version}}{{urlProduct}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"product"
+										"{{url}}{{version}}{{urlProduct}}"
 									]
 								}
 							},
@@ -556,12 +789,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/product/1",
+									"raw": "{{url}}{{version}}{{urlProduct}}/1",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProduct}}"
 									],
 									"path": [
-										"product",
 										"1"
 									]
 								}
@@ -569,7 +801,7 @@
 							"response": []
 						},
 						{
-							"name": "admin - Atualizar dados do produto",
+							"name": "admin - Atualizar dados do produto específico",
 							"request": {
 								"method": "PUT",
 								"header": [
@@ -594,12 +826,11 @@
 									"raw": "{\r\n    \"status\": \"1\",\r\n    \"name\": \"X-Picanha999\",\r\n    \"price\": \"34\",\r\n    \"product_category_id\": \"1\"\r\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/product/5",
+									"raw": "{{url}}{{version}}{{urlProduct}}/5",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProduct}}"
 									],
 									"path": [
-										"product",
 										"5"
 									]
 								}
@@ -607,7 +838,7 @@
 							"response": []
 						},
 						{
-							"name": "admin - Atualizar parte dos dados do produto.",
+							"name": "admin - Atualizar parte dos dados do produto específico",
 							"request": {
 								"method": "PATCH",
 								"header": [
@@ -632,12 +863,11 @@
 									"raw": "{\r\n    \"price\": \"1.999\",\r\n    \"product_category_id\": \"1\"\r\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/product/2",
+									"raw": "{{url}}{{version}}{{urlProduct}}/2",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProduct}}"
 									],
 									"path": [
-										"product",
 										"2"
 									]
 								}
@@ -645,7 +875,7 @@
 							"response": []
 						},
 						{
-							"name": "admin - Excluir produto.",
+							"name": "admin - Excluir produto específico",
 							"request": {
 								"method": "DELETE",
 								"header": [
@@ -676,12 +906,11 @@
 									]
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/product/2",
+									"raw": "{{url}}{{version}}{{urlProduct}}/2",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProduct}}"
 									],
 									"path": [
-										"product",
 										"2"
 									]
 								}
@@ -703,12 +932,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/product/q/ha",
+									"raw": "{{url}}{{version}}{{urlProduct}}/q/ha",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlProduct}}"
 									],
 									"path": [
-										"product",
 										"q",
 										"ha"
 									]
@@ -1389,12 +1617,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}{{version}}/user/logged",
+							"raw": "{{url}}{{version}}{{urlUser}}/logged",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlUser}}"
 							],
 							"path": [
-								"user",
 								"logged"
 							]
 						}
@@ -1428,12 +1655,9 @@
 							"raw": "{\n\t\"name\": \"Peter\",\n\t\"email\": \"peterclayder@gmail.com\",\n\t\"password\": \"p1p2lspc\",\n\t\"password_confirmation\": \"p1p2lspc\",\n\t\"telephone\": \"21971579961\"\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/user",
+							"raw": "{{url}}{{version}}{{urlUser}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"user"
+								"{{url}}{{version}}{{urlUser}}"
 							]
 						}
 					},
@@ -1477,12 +1701,11 @@
 							"raw": "{\n\t\"email\": \"admin@gmail.com\",\n\t\"password\": \"admin123\",\n\t\"remember_me\": true\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/user/login",
+							"raw": "{{url}}{{version}}{{urlUser}}/login",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlUser}}"
 							],
 							"path": [
-								"user",
 								"login"
 							]
 						}
@@ -1514,12 +1737,11 @@
 							"raw": "{\n\t\"email\": \"peterclayder@id.uff.br\",\n\t\"password\": \"p1p2lspc\",\n\t\"remember_me\": true\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/user/logout",
+							"raw": "{{url}}{{version}}{{urlUser}}/logout",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlUser}}"
 							],
 							"path": [
-								"user",
 								"logout"
 							]
 						}
@@ -1563,12 +1785,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/user/1",
+							"raw": "{{url}}{{version}}{{urlUser}}/1",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlUser}}"
 							],
 							"path": [
-								"user",
 								"1"
 							]
 						}
@@ -1584,7 +1805,7 @@
 					"name": "address",
 					"item": [
 						{
-							"name": "admin - create",
+							"name": "admin - Cadastrar endereço para um cliente específico",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -1610,21 +1831,19 @@
 									"raw": "{\n\t\"postcode\": \"111\",\n    \"country\": \"kkkkk\",\n    \"state\": \"sas\",\n    \"city\": \"sas\",\n    \"region\": \"asa\",\n    \"street_1\": \"sasa\",\n    \"street_2\": \"sas\",\n    \"street_3\": \"sdsd\",\n    \"shipping_id\": 2\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/1/address",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/1{{urlAddress}}",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
-										"1",
-										"address"
+										"1{{urlAddress}}"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "admin - atualizar endereço",
+							"name": "admin - Atualizar endereço específico de um cliente",
 							"request": {
 								"method": "PUT",
 								"header": [
@@ -1650,14 +1869,12 @@
 									"raw": "{\n\t\"postcode\": \"99999\",\n    \"country\": \"kkkkk\",\n    \"state\": \"sas\",\n    \"city\": \"sas\",\n    \"region\": \"asa\",\n    \"street_1\": \"sasa\",\n    \"street_2\": \"sas\",\n    \"street_3\": \"sdsd\",\n    \"street_4\": \"qqq\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/1/address/6",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/1{{urlAddress}}/6",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
-										"1",
-										"address",
+										"1{{urlAddress}}",
 										"6"
 									]
 								}
@@ -1665,7 +1882,7 @@
 							"response": []
 						},
 						{
-							"name": "cliente - atualizar endereço",
+							"name": "cliente - Atualizar parte do endereço específico de um cliente",
 							"request": {
 								"method": "PATCH",
 								"header": [
@@ -1691,13 +1908,12 @@
 									"raw": "{\n\t\"postcode\": \"000998\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/address/6",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/1{{urlAddress}}/6",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
-										"address",
+										"1{{urlAddress}}",
 										"6"
 									]
 								}
@@ -1705,7 +1921,7 @@
 							"response": []
 						},
 						{
-							"name": "admin - excluir endereço",
+							"name": "admin - Excluindo um endereço específico de um cliente",
 							"request": {
 								"method": "DELETE",
 								"header": [
@@ -1731,14 +1947,12 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/1/address/4",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/1{{urlAddress}}/4",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
-										"1",
-										"address",
+										"1{{urlAddress}}",
 										"4"
 									]
 								}
@@ -1746,7 +1960,7 @@
 							"response": []
 						},
 						{
-							"name": "cliente - excluir endereço",
+							"name": "cliente - Excluindo seu endereço",
 							"request": {
 								"method": "DELETE",
 								"header": [
@@ -1772,13 +1986,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/address/5",
+									"raw": "{{url}}{{version}}{{urlCustomer}}{{urlAddress}}/5",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}{{urlAddress}}"
 									],
 									"path": [
-										"customer",
-										"address",
 										"5"
 									]
 								}
@@ -1786,7 +1998,7 @@
 							"response": []
 						},
 						{
-							"name": "cliente  - Cadastrar endereço de usuário logado",
+							"name": "cliente  - Cadastrando seu endereço",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -1812,13 +2024,9 @@
 									"raw": "{\n\t\"postcode\": \"111\",\n    \"country\": \"br\",\n    \"state\": \"Rio de Janeiro\",\n    \"city\": \"Rio das Ostras\",\n    \"region\": \"region\",\n    \"street_1\": \"rua bangu\",\n    \"street_2\": \"123\",\n    \"street_3\": \"casa\",\n    \"shipping_id\": 1\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/address",
+									"raw": "{{url}}{{version}}{{urlCustomer}}{{urlAddress}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"customer",
-										"address"
+										"{{url}}{{version}}{{urlCustomer}}{{urlAddress}}"
 									]
 								}
 							},
@@ -1851,13 +2059,11 @@
 									"raw": "{\n\t\"postcode\": \"88888\",\n    \"country\": \"kkkkk\",\n    \"state\": \"sas\",\n    \"city\": \"sas\",\n    \"region\": \"asa\",\n    \"street_1\": \"sasa\",\n    \"street_2\": \"sas\",\n    \"street_3\": \"sdsd\",\n    \"street_4\": \"qqq\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/address/6",
+									"raw": "{{url}}{{version}}{{urlCustomer}}{{urlAddress}}/6",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}{{urlAddress}}"
 									],
 									"path": [
-										"customer",
-										"address",
 										"6"
 									]
 								}
@@ -1871,7 +2077,7 @@
 					"name": "customer",
 					"item": [
 						{
-							"name": "admin - get clientes",
+							"name": "admin - Retornando todos os clientes",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -1887,19 +2093,16 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/customer",
+									"raw": "{{url}}{{version}}{{urlCustomer}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"customer"
+										"{{url}}{{version}}{{urlCustomer}}"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "admin - get cliente pelo id",
+							"name": "admin - Retornando cliente pelo ID",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -1915,12 +2118,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/customer/1",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/1",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
 										"1"
 									]
 								}
@@ -1928,7 +2130,7 @@
 							"response": []
 						},
 						{
-							"name": "Create customer",
+							"name": "Cadastro de cliente",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -1955,12 +2157,9 @@
 									"raw": "{\n\t\"name\": \"Peter\",\n\t\"email\": \"peterclayder@gmail.com\",\n\t\"password\": \"p1p2lspc\",\n\t\"password_confirmation\": \"p1p2lspc\",\n\t\"telephone\": \"21971579961\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer",
+									"raw": "{{url}}{{version}}{{urlCustomer}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"customer"
+										"{{url}}{{version}}{{urlCustomer}}"
 									]
 								}
 							},
@@ -2004,12 +2203,11 @@
 									"raw": "{\n\t\"email\": \"peterclayder@gmail.com\",\n\t\"password\": \"p1p2lspc\",\n\t\"remember_me\": true\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/login",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/login",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
 										"login"
 									]
 								}
@@ -2041,12 +2239,11 @@
 									"raw": "{\n\t\"email\": \"peterclayder@id.uff.br\",\n\t\"password\": \"p1p2lspc\",\n\t\"remember_me\": true\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/logout",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/logout",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
 										"logout"
 									]
 								}
@@ -2054,7 +2251,7 @@
 							"response": []
 						},
 						{
-							"name": "cliente - cliente logado",
+							"name": "cliente - Cliente retornando seus dados",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -2070,12 +2267,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/customer/logged",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/logged",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
 										"logged"
 									]
 								}
@@ -2113,7 +2309,7 @@
 			"name": "shipping",
 			"item": [
 				{
-					"name": "admin - cadastrar bairro",
+					"name": "admin - Cadastrando frete",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -2138,19 +2334,16 @@
 							"raw": "{\n\t\"location\": \"Liberdade\",\n\t\"price\": 3.5\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/shipping",
+							"raw": "{{url}}{{version}}{{urlShipping}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"shipping"
+								"{{url}}{{version}}{{urlShipping}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "admin - excluir",
+					"name": "admin - Excluindo frete",
 					"request": {
 						"method": "DELETE",
 						"header": [
@@ -2175,20 +2368,19 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/shipping/188",
+							"raw": "{{url}}{{version}}{{urlShipping}}/1",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlShipping}}"
 							],
 							"path": [
-								"shipping",
-								"188"
+								"1"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "admin - editar",
+					"name": "admin - Editando dados do frete",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -2213,12 +2405,11 @@
 							"raw": "{\n\t\"price\": 99999\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/shipping/1",
+							"raw": "{{url}}{{version}}{{urlShipping}}/1",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlShipping}}"
 							],
 							"path": [
-								"shipping",
 								"1"
 							]
 						}
@@ -2226,7 +2417,7 @@
 					"response": []
 				},
 				{
-					"name": "admin - editar",
+					"name": "admin - Editando parte dos dados do frete",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -2251,12 +2442,11 @@
 							"raw": "{\n\t\"price\": 22\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/shipping/1",
+							"raw": "{{url}}{{version}}{{urlShipping}}/1",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlShipping}}"
 							],
 							"path": [
-								"shipping",
 								"1"
 							]
 						}
@@ -2264,7 +2454,7 @@
 					"response": []
 				},
 				{
-					"name": "todos",
+					"name": "Retornando todos os fretes.",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2287,19 +2477,16 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/shipping",
+							"raw": "{{url}}{{version}}{{urlShipping}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"shipping"
+								"{{url}}{{version}}{{urlShipping}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "pelo ID",
+					"name": "Retornando frete pelo ID",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -2327,12 +2514,11 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/shipping/1",
+							"raw": "{{url}}{{version}}{{urlShipping}}/1",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlShipping}}"
 							],
 							"path": [
-								"shipping",
 								"1"
 							]
 						}
@@ -2520,7 +2706,19 @@
 				"id": "60cb611d-49e5-41e5-a3c3-ba0d3a1d1aa8",
 				"type": "text/javascript",
 				"exec": [
-					""
+					"pm.globals.set(\"urlProdutoAdicional\", \"/product/additional\");",
+					"pm.globals.set(\"urlShipping\", \"/shipping\");",
+					"pm.globals.set(\"urlProductCategory\", \"/product/category\");",
+					"pm.globals.set(\"urlAddress\", \"/address\");",
+					"pm.globals.set(\"urlCustomer\", \"/customer\");",
+					"pm.globals.set(\"urlCart\", \"/cart\");",
+					"pm.globals.set(\"urlOrder\", \"/order\");",
+					"pm.globals.set(\"urlCustomerAddres\", \"/customer/address\");",
+					"pm.globals.set(\"urlCustomerOrder\", \"/customer/order\");",
+					"pm.globals.set(\"urlProduct\", \"/product\");",
+					"pm.globals.set(\"urlAdditional\", \"/additional\");",
+					"pm.globals.set(\"urlProductImage\", \"/image\");",
+					"pm.globals.set(\"urlUser\", \"/user\");"
 				]
 			}
 		},

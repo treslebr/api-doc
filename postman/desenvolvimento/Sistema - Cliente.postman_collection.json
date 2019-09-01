@@ -12,7 +12,7 @@
 					"name": "address",
 					"item": [
 						{
-							"name": "cliente logado  - atualizar endereço",
+							"name": "[cliente logado]  - Atualizar endereço",
 							"request": {
 								"method": "PATCH",
 								"header": [
@@ -38,13 +38,11 @@
 									"raw": "{\n\t\"postcode\": \"000998\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/address/6",
+									"raw": "{{url}}{{version}}{{urlCustomerAddres}}/6",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomerAddres}}"
 									],
 									"path": [
-										"customer",
-										"address",
 										"6"
 									]
 								}
@@ -52,7 +50,7 @@
 							"response": []
 						},
 						{
-							"name": "cliente logado  - excluir endereço",
+							"name": "[cliente logado]  - Excluir endereço",
 							"request": {
 								"method": "DELETE",
 								"header": [
@@ -78,13 +76,11 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/address/5",
+									"raw": "{{url}}{{version}}{{urlCustomerAddres}}/5",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomerAddres}}"
 									],
 									"path": [
-										"customer",
-										"address",
 										"5"
 									]
 								}
@@ -118,13 +114,9 @@
 									"raw": "{\n\t\"postcode\": \"111\",\n    \"country\": \"br\",\n    \"state\": \"Rio de Janeiro\",\n    \"city\": \"Rio das Ostras\",\n    \"region\": \"region\",\n    \"street_1\": \"rua bangu\",\n    \"street_2\": \"123\",\n    \"street_3\": \"casa\",\n    \"shipping_id\": 1\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/address",
+									"raw": "{{url}}{{version}}{{urlCustomerAddres}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"customer",
-										"address"
+										"{{url}}{{version}}{{urlCustomerAddres}}"
 									]
 								}
 							},
@@ -132,6 +124,18 @@
 						},
 						{
 							"name": "cliente  - atualizar endereço",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2384845a-29a5-4ac0-a54c-4ad9c89a6bc7",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "PUT",
 								"header": [
@@ -157,13 +161,11 @@
 									"raw": "{\n\t\"postcode\": \"88888\",\n    \"country\": \"kkkkk\",\n    \"state\": \"sas\",\n    \"city\": \"sas\",\n    \"region\": \"asa\",\n    \"street_1\": \"sasa\",\n    \"street_2\": \"sas\",\n    \"street_3\": \"sdsd\",\n    \"street_4\": \"qqq\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/address/6",
+									"raw": "{{url}}{{version}}{{urlCustomerAddres}}/6",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomerAddres}}"
 									],
 									"path": [
-										"customer",
-										"address",
 										"6"
 									]
 								}
@@ -204,12 +206,9 @@
 									"raw": "{\n\t\"name\": \"Peter\",\n\t\"email\": \"peterclayder@gmail.com\",\n\t\"password\": \"p1p2lspc\",\n\t\"password_confirmation\": \"p1p2lspc\",\n\t\"telephone\": \"21971579961\"\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer",
+									"raw": "{{url}}{{version}}{{urlCustomer}}",
 									"host": [
-										"{{url}}{{version}}"
-									],
-									"path": [
-										"customer"
+										"{{url}}{{version}}{{urlCustomer}}"
 									]
 								}
 							},
@@ -250,15 +249,14 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"email\": \"peterclayder@gmail.com\",\n\t\"password\": \"p1p2lspc\",\n\t\"remember_me\": true\n}"
+									"raw": "{\n\t\"email\": \"customer@gmail.com\",\n\t\"password\": \"customer123\",\n\t\"remember_me\": true\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/login",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/login",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
 										"login"
 									]
 								}
@@ -290,12 +288,11 @@
 									"raw": "{\n\t\"email\": \"peterclayder@id.uff.br\",\n\t\"password\": \"p1p2lspc\",\n\t\"remember_me\": true\n}"
 								},
 								"url": {
-									"raw": "{{url}}{{version}}/customer/logout",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/logout",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
 										"logout"
 									]
 								}
@@ -319,12 +316,11 @@
 									}
 								],
 								"url": {
-									"raw": "{{url}}{{version}}/customer/logged",
+									"raw": "{{url}}{{version}}{{urlCustomer}}/logged",
 									"host": [
-										"{{url}}{{version}}"
+										"{{url}}{{version}}{{urlCustomer}}"
 									],
 									"path": [
-										"customer",
 										"logged"
 									]
 								}
@@ -366,19 +362,16 @@
 							"raw": "{\n\t\"qty\": 2, \n\t\"obs\": \"obs2\",\n\t\"product_id\": 3\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/cart",
+							"raw": "{{url}}{{version}}{{urlCart}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"cart"
+								"{{url}}{{version}}{{urlCart}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "cliente logado - atualizar item carrinho",
+					"name": "cliente logado - atualizar item do carrinho",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -404,12 +397,11 @@
 							"raw": "{\n\t\"qty\": 1, \n\t\"obs\": \"obs2\",\n\t\"product_id\": 3, \n\t\"additionals_id\": [1,2]\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/cart/14",
+							"raw": "{{url}}{{version}}{{urlCart}}/14",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlCart}}"
 							],
 							"path": [
-								"cart",
 								"14"
 							]
 						}
@@ -443,12 +435,11 @@
 							"raw": "{\n\t\"additionals_id\": [1,2,3,4]\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/cart/14",
+							"raw": "{{url}}{{version}}{{urlCart}}/14",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlCart}}"
 							],
 							"path": [
-								"cart",
 								"14"
 							]
 						}
@@ -482,12 +473,11 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/cart/13",
+							"raw": "{{url}}{{version}}{{urlCart}}/13",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlCart}}"
 							],
 							"path": [
-								"cart",
 								"13"
 							]
 						}
@@ -524,12 +514,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/cart",
+							"raw": "{{url}}{{version}}{{urlCart}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"cart"
+								"{{url}}{{version}}{{urlCart}}"
 							]
 						}
 					},
@@ -567,19 +554,16 @@
 							"raw": "{\n\t\"addressId\": 1\n}"
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/order",
+							"raw": "{{url}}{{version}}{{urlOrder}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"order"
+								"{{url}}{{version}}{{urlOrder}}"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "cliente logado - retornar pedidos",
+					"name": "cliente logado - retornar todos os pedidos do cliente logado",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -608,13 +592,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/customer/order",
+							"raw": "{{url}}{{version}}{{urlCustomerOrder}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"customer",
-								"order"
+								"{{url}}{{version}}{{urlCustomerOrder}}"
 							]
 						}
 					},
@@ -650,13 +630,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/customer/order",
+							"raw": "{{url}}{{version}}{{urlCustomerOrder}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"customer",
-								"order"
+								"{{url}}{{version}}{{urlCustomerOrder}}"
 							]
 						}
 					},
@@ -691,12 +667,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/shipping",
+							"raw": "{{url}}{{version}}{{urlShipping}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"shipping"
+								"{{url}}{{version}}{{urlShipping}}"
 							]
 						}
 					},
@@ -731,12 +704,11 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{url}}{{version}}/shipping/1",
+							"raw": "{{url}}{{version}}{{urlShipping}}/1",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlShipping}}"
 							],
 							"path": [
-								"shipping",
 								"1"
 							]
 						}
@@ -763,12 +735,9 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}{{version}}/product",
+							"raw": "{{url}}{{version}}{{urlProduct}}",
 							"host": [
-								"{{url}}{{version}}"
-							],
-							"path": [
-								"product"
+								"{{url}}{{version}}{{urlProduct}}"
 							]
 						}
 					},
@@ -789,12 +758,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}{{version}}/product/1",
+							"raw": "{{url}}{{version}}{{urlProduct}}/1",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlProduct}}"
 							],
 							"path": [
-								"product",
 								"1"
 							]
 						}
@@ -816,12 +784,11 @@
 							}
 						],
 						"url": {
-							"raw": "{{url}}{{version}}/product/q/ha",
+							"raw": "{{url}}{{version}}{{urlProduct}}/q/ha",
 							"host": [
-								"{{url}}{{version}}"
+								"{{url}}{{version}}{{urlProduct}}"
 							],
 							"path": [
-								"product",
 								"q",
 								"ha"
 							]
@@ -852,6 +819,40 @@
 					}
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ef575dfa-7a8f-41ed-85a2-ee930c1d4039",
+				"type": "text/javascript",
+				"exec": [
+					"pm.globals.set(\"urlProdutoAdicional\", \"/product/additional\");",
+					"pm.globals.set(\"urlShipping\", \"/shipping\");",
+					"pm.globals.set(\"urlProductCategory\", \"/product/category\");",
+					"pm.globals.set(\"urlAddress\", \"/address\");",
+					"pm.globals.set(\"urlCustomer\", \"/customer\");",
+					"pm.globals.set(\"urlCart\", \"/cart\");",
+					"pm.globals.set(\"urlOrder\", \"/order\");",
+					"pm.globals.set(\"urlCustomerAddres\", \"/customer/address\");",
+					"pm.globals.set(\"urlCustomerOrder\", \"/customer/order\");",
+					"pm.globals.set(\"urlProduct\", \"/product\");",
+					"pm.globals.set(\"urlAdditional\", \"/additional\");",
+					"pm.globals.set(\"urlProductImage\", \"/image\");",
+					"pm.globals.set(\"urlUser\", \"/user\");"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "43005f47-f119-4b3e-8c7e-a6d0d351c5c7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
