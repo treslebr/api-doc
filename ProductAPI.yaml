@@ -11,7 +11,7 @@ servers:
 
 paths:
 
-  /user/login:
+  /users/login:
 
     post:
       summary: Realizar Login.
@@ -59,7 +59,7 @@ paths:
                   type: string
                   example: "admin123"
 
-  /product:
+  /products:
 
     get:
 
@@ -117,7 +117,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/Product'
 
-  /product/{productId}:
+  /products/{productId}:
     parameters:
       - $ref: '#/components/parameters/productId'
 
@@ -262,7 +262,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/q/{name}:
+  /products/q/{name}:
     get:
 
       parameters:
@@ -297,7 +297,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/{productId}/additional:
+  /products/{productId}/additionals:
     parameters:
       - $ref: '#/components/parameters/productId'
 
@@ -308,7 +308,7 @@ paths:
         - bearerAuth: []
 
       tags:
-        - Product
+        - Product additional
       responses:
         '201':
           description: OK.
@@ -333,7 +333,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ProductAdditional'
 
-  /product/category:
+  /products/categories:
     post:
       summary: Cadastrar categoria do produto.
 
@@ -397,7 +397,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/category/{categoryId}:
+  /products/categories/{categoryId}:
     parameters:
       - $ref: '#/components/parameters/categoryId'
 
@@ -544,7 +544,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/category/q/{name}:
+  /products/categories/q/{name}:
 
     get:
 
@@ -583,7 +583,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/additional/category:
+  /products/additionals/categories:
     post:
       summary: Cadastrar categoria do produto adicional.
 
@@ -647,7 +647,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/additional/category/{categoryId}:
+  /products/additionals/categories/{categoryId}:
 
     parameters:
       - $ref: '#/components/parameters/categoryId'
@@ -774,7 +774,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/additional/category/q/{name}:
+  /products/additionals/categories/q/{name}:
 
     get:
 
@@ -813,7 +813,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/additional:
+  /products/additionals:
     get:
 
       security:
@@ -876,7 +876,7 @@ paths:
       requestBody:
         $ref: '#/components/requestBodies/ProductAdditional'
 
-  /product/additional/{productAdditionalId}:
+  /products/additionals/{productAdditionalId}:
     parameters:
       - $ref: '#/components/parameters/productAdditionalId'
 
@@ -1025,7 +1025,7 @@ paths:
         '500':
           description: Erro interno do servidor (Internal Server Error).
 
-  /product/additional/q/{name}:
+  /products/additionals/q/{name}:
     parameters:
       - $ref: '#/components/parameters/q'
 
@@ -1415,22 +1415,3 @@ components:
           type: string
         errors:
           type: string
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
