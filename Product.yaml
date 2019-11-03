@@ -11,54 +11,6 @@ servers:
 
 paths:
 
-  /users/login:
-
-    post:
-      summary: Realizar Login.
-
-      tags:
-        - Login
-      responses:
-        '200':
-          description: OK.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  access_token:
-                    type: string
-                  token_type:
-                    type: string
-                  expires_at:
-                    type: string
-                    format: date
-                  is_admin:
-                    type: boolean
-
-        '422':
-          description: Entidade improcessável.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/errorMessage"
-
-        '500':
-          description: Erro interno do servidor (Internal Server Error).
-
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: "admin@gmail.com"
-                password:
-                  type: string
-                  example: "admin123"
-
   /products:
 
     get:
@@ -81,9 +33,22 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/error"
+                
+        '404':
+          description: Recurso nõ encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+          
+        '504':
+          description: Gateway Time-Out.
 
     post:
       summary: Cadastrar produto.
@@ -104,8 +69,15 @@ paths:
         '401':
           description: Não autorizado.
 
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+        
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -113,6 +85,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Product'
@@ -142,15 +120,14 @@ paths:
               schema:
                 $ref: "#/components/schemas/errorMessage"
 
-        '405':
-          description: Método não permitido.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/error"
-
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
     put:
 
@@ -169,6 +146,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/productStatus2x'
 
+        '401':
+          description: Não autorizado.
+        
         '404':
           description: Produto não encontrado.
           content:
@@ -176,19 +156,21 @@ paths:
               schema:
                 $ref: "#/components/schemas/errorMessage"
 
-        '401':
-          description: Não autorizado.
-
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/errorMessage"
 
-
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Product'
@@ -210,18 +192,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/productStatus2x'
 
-        '404':
-          description: Produto não encontrado.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/errorMessage"
-
         '401':
           description: Não autorizado.
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Product'
@@ -252,15 +233,14 @@ paths:
               schema:
                 $ref: "#/components/schemas/errorMessage"
 
-        '405':
-          description: Método não permitido.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/error"
-
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
   /products/q/{name}:
     get:
@@ -296,6 +276,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+        
+        '504':
+          description: Gateway Time-Out.
 
   /products/{productId}/additionals:
     parameters:
@@ -321,7 +307,7 @@ paths:
           description: Não autorizado.
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -329,6 +315,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/ProductAdditional'
@@ -352,9 +344,16 @@ paths:
 
         '401':
           description: Não autorizado.
+          
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -362,6 +361,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Category'
@@ -387,15 +392,27 @@ paths:
         '401':
           description: Não autorizado.
 
-        '422':
-          description: Entidade improcessável.
+        '404':
+          description: Produto não encontrado.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/errorMessage"
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error" 
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+        
+        '504':
+          description: Gateway Time-Out.
 
   /products/categories/{categoryId}:
     parameters:
@@ -428,7 +445,7 @@ paths:
                 $ref: "#/components/schemas/errorMessage"
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -436,6 +453,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
     put:
       summary: Atualizar categoria do produto.
@@ -464,7 +487,7 @@ paths:
                 $ref: "#/components/schemas/errorMessage"
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -472,6 +495,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Category'
@@ -504,6 +533,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Category'
@@ -534,15 +569,14 @@ paths:
               schema:
                 $ref: "#/components/schemas/errorMessage"
 
-        '422':
-          description: Entidade improcessável.
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/errorMessage"
-
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
   /products/categories/q/{name}:
 
@@ -582,6 +616,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
   /products/additionals/categories:
     post:
@@ -604,7 +644,7 @@ paths:
           description: Não autorizado.
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -612,6 +652,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Category'
@@ -638,7 +684,7 @@ paths:
           description: Não autorizado.
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -646,6 +692,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
   /products/additionals/categories/{categoryId}:
 
@@ -679,7 +731,7 @@ paths:
                 $ref: "#/components/schemas/errorMessage"
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -687,6 +739,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
     put:
       summary: Atualizar categoria.
@@ -708,7 +766,7 @@ paths:
           description: Não autorizado.
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -716,6 +774,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Category'
@@ -741,6 +805,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Category'
@@ -765,7 +835,7 @@ paths:
           description: Não autorizado.
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -773,6 +843,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
   /products/additionals/categories/q/{name}:
 
@@ -812,6 +888,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
   /products/additionals:
     get:
@@ -842,6 +924,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
     post:
 
@@ -864,7 +952,7 @@ paths:
           description: Não autorizado.
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
@@ -872,6 +960,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/ProductAdditional'
@@ -914,6 +1008,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
     put:
 
@@ -943,15 +1043,20 @@ paths:
           description: Não autorizado.
 
         '422':
-          description: Entidade improcessável.
+          description: Requisição com parâmetros inválidos.
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/errorMessage"
 
-
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/ProductAdditional'
@@ -985,6 +1090,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
       requestBody:
         $ref: '#/components/requestBodies/Product'
@@ -1024,6 +1135,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
   /products/additionals/q/{name}:
     parameters:
@@ -1064,6 +1181,12 @@ paths:
 
         '500':
           description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+
+        '504':
+          description: Gateway Time-Out.
 
 components:
 
