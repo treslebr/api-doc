@@ -1,0 +1,158 @@
+openapi: 3.0.0
+info:
+  title: Usuários
+  description: 'Operações para o gerenciamento de administradores.'
+  version: 1.0.0
+  termsOfService: 'http://swagger.io/terms/'
+servers:
+  - url: 'http://127.0.0.1:8000/api/v1'
+    description: Sandbox
+
+
+paths:
+
+  /users/login:
+
+    post:
+      summary: Realizar Login.
+
+      tags:
+        - Login
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                  expires_at:
+                    type: string
+                    format: date
+                  is_admin:
+                    type: boolean
+
+        '422':
+          description: Requisição com parâmetros inválidos.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+          
+        '504':
+          description: Gateway Time-Out.
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: "admin@gmail.com"
+                password:
+                  type: string
+                  example: "admin123"
+  
+  /users:
+
+    post:
+      summary: Cadastrar usuário.
+
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Users
+      responses:
+        '201':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/messageSucess"
+
+        '422':
+          description: Requisição com parâmetros inválidos.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+          
+        '504':
+          description: Gateway Time-Out.
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+                telephone:
+                  type: string
+                cellphone:
+                  type: string
+                  
+
+  
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+
+    
+    messageSucess:
+      type: object
+      properties:
+        message:
+          type: string
+    
+
+    error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            description:
+              type: string
+            messages:
+              type: array
+              items:
+                type: string
+
+    errorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+        errors:
+          type: string
