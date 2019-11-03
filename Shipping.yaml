@@ -1,0 +1,318 @@
+openapi: 3.0.0
+info:
+  title: Frete
+  description: 'Operações para o gerenciamento de fretes.'
+  version: 1.0.0
+  termsOfService: 'http://swagger.io/terms/'
+servers:
+  - url: 'http://127.0.0.1:8000/api/v1'
+    description: Sandbox
+
+
+paths:
+
+  /shippings:
+  
+    get:
+
+      tags:
+        - Shipping
+      summary: Retorna os fretes.
+      responses:
+
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/shipping"
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+                
+        '404':
+          description: Recurso nõ encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+          
+        '504':
+          description: Gateway Time-Out.
+
+    post:
+      summary: Cadastrar localização para frete.
+      
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Shipping
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/shipping"
+                
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Requisição com parâmetros inválidos.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+          
+        '504':
+          description: Gateway Time-Out.
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location:
+                  type: string
+                  example: Liberdade RO
+                price:
+                  type: number
+                  format: decimal
+                  example: 5.00
+  
+  /shippings/{id}:
+  
+    parameters:
+      - $ref: '#/components/parameters/id'
+  
+    get:
+    
+      tags:
+        - Shipping
+      summary: Retorna o frete.
+      
+      security:
+        - bearerAuth: []
+      
+      responses:
+
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                  $ref: "#/components/schemas/shipping"
+                  
+        '401':
+          description: Não autorizado.
+
+        '405':
+          description: Método não permitido.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+                
+        '404':
+          description: Recurso nõ encontrado.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/error"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+          
+        '504':
+          description: Gateway Time-Out.
+          
+    put:
+      summary: Atualizar frete.
+      
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Shipping
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/shipping"
+                
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Requisição com parâmetros inválidos.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+          
+        '504':
+          description: Gateway Time-Out.
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location:
+                  type: string
+                  example: Liberdade RO
+                price:
+                  type: number
+                  format: decimal
+                  example: 5.00
+                  
+    patch:
+      summary: Atualizar frete.
+      
+      security:
+        - bearerAuth: []
+
+      tags:
+        - Shipping
+      responses:
+        '200':
+          description: OK.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/shipping"
+                
+        '401':
+          description: Não autorizado.
+
+        '422':
+          description: Requisição com parâmetros inválidos.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/errorMessage"
+
+        '500':
+          description: Erro interno do servidor (Internal Server Error).
+          
+        '502':
+          description: Bad Gateway.
+          
+        '504':
+          description: Gateway Time-Out.
+
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                location:
+                  type: string
+                  example: Liberdade RO
+                price:
+                  type: number
+                  format: decimal
+                  example: 5.00
+  
+  
+components:
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      
+  parameters:
+
+    id:
+      name: id
+      in: path
+      required: true
+      description: ID do produto.
+      schema:
+        type: string
+
+  schemas:
+
+    messageSucess:
+      type: object
+      properties:
+        message:
+          type: string
+    
+    error:
+      type: object
+      properties:
+        error:
+          type: object
+          properties:
+            description:
+              type: string
+            messages:
+              type: array
+              items:
+                type: string
+
+    errorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+        errors:
+          type: string
+          
+    shipping:
+      type: object 
+      properties:
+        id:
+          type: integer
+          
+        location:
+          type: string
+        price:
+          type: number
+          format: decimal
+        updated_at:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+    
+    
+    
